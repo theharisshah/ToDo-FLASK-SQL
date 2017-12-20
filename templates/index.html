@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ToDo Web App</title>
+    <!-- <script src="static/javascrp.js"></script> -->
+</head>
+<body>
+  <h1>To Do :</h1>
+  <div>Add a new Todo Item :
+    <form action="/add" method="POST"><input type="text" name="todoitem" id="txt" value="{{ val }}"><input type="submit" id="sub" value="Enter"></form>
+  </div>
+  <div>
+    <ul>
+        {%for todo in todos %}
+        <!-- <li style="font size: 30pt" id="add" onclick="add()">{{ todo.text }}</li> -->
+        <li style="font size: 30pt" id="test">{{ todo.text }}</li>&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="{{ url_for('edit', id=todo.id, text=todo.text)}}" id="Edit" onclick="edit()">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="{{ url_for('delete', id=todo.id)}}">Delete</a>
+        {% endfor %}
+    </ul>
+  </div>
+  <script src="static/jquery-3.2.1.js"></script>
+  <script src="static/javascrp.js"></script>
+</body>
+
+</html>
